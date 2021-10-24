@@ -66,6 +66,11 @@ public class Controller
 
         CardsLogin cl = cardsLoginRepo.findItemByName(username);
         
+        if(null==cl)
+        {
+            System.out.println("Not found");
+        }
+        
         rsp = clgson.toJson(cl);
 
         return new ResponseEntity<>(cl, HttpStatus.OK);
