@@ -54,9 +54,9 @@ public class Controller
     }
 
     /**
-     * 
+     *
      * @param username
-     * @return 
+     * @return
      */
     @RequestMapping(value = "/findbyuser", method = RequestMethod.GET)
     public ResponseEntity<CardsLogin> findbyuser(@RequestParam String username)
@@ -65,12 +65,12 @@ public class Controller
         Gson clgson = new Gson();
 
         CardsLogin cl = cardsLoginRepo.findItemByName(username);
-        
-        if(null==cl)
+
+        if (null == cl)
         {
             System.out.println("Not found");
         }
-        
+
         rsp = clgson.toJson(cl);
 
         return new ResponseEntity<>(cl, HttpStatus.OK);
